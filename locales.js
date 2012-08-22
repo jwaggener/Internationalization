@@ -3,11 +3,12 @@ var locales = function(){
   
   var instance;
 
-  function init(){
+  function init( locale ){
+    
     var _defaultLanguage;
     var _languages;
     
-    _defaultLanguage = "en-us";
+    _defaultLanguage = locale || "en-us";
     
     function _addLanguage( hash ){
       //initialize the _languages hash
@@ -37,14 +38,15 @@ var locales = function(){
   
     return{
       addLanguage: _addLanguage,
-      translate: _translate
+      translate: _translate,
+      t: _translate
     }
   }
   
   return{
-    getInstance: function(){
+    getInstance: function( locale ){
       if( !instance ){
-        instance = init();
+        instance = init( locale );
       }
       return instance;
     }

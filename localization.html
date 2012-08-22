@@ -14,7 +14,7 @@
       locales.getInstance().addLanguage( en_us );
       locales.getInstance().addLanguage( es_mx );
       //define a template; the template uses the locale.translate method to insert locale-specific text
-      var template = "<h1><%=locales.getInstance().translate( 'heading', locale )%></h1><div><%=locales.getInstance().translate( 'content', locale )%></div>"
+      var template = "<h1><%=locales.getInstance().t( 'heading', locale )%></h1><div><%=locales.getInstance().t( 'content', locale )%></div>"
       //for illustration. used by the buttons
       function display( lang ){
         document.getElementById("content").innerHTML = _.template( template, { locale: lang } );
